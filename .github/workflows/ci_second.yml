@@ -45,7 +45,8 @@ jobs:
       host     : ${{ matrix.testSet.host }}
       config   : ${{ matrix.testSet.config }}
       account  : ${{ matrix.testSet.account }}
-      tests    : ${{ toJson( matrix.testSet.tests ) }}
+      tests    : ${{ toJson( inputs.tests ) }}
+      #tests    : ${{ toJson( matrix.testSet.tests ) }}
       mkdirs   : ${{ matrix.testSet.mkdirs }}
       args     : ${{ matrix.testSet.args }}
       pool     : ${{ matrix.testSet.pool }}
