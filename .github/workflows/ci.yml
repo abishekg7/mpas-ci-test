@@ -39,6 +39,10 @@ jobs:
       # This should be the only hard-coded value, we don't use ${{ github.event.label.name }}
       # to avoid 'all-tests' to be used in this workflow
       label    : my-tests
+      tests    :
+        - gnu
+        - nvhpc-cpu
+        # add new compilation tests here
 
     permissions:
       contents: read

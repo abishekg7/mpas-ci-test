@@ -1,14 +1,17 @@
-name: Regression Suite
-run-name : ${{ github.event_name == 'push' && 'CI' || github.event.label.name }} (${{ github.event_name }})
 
 on:
   workflow_call :
     inputs :
+      label : 
+        required : true
+        type     : string
+      tests    :
+          required : true
+          type     : string
 
-    
+
 jobs:
   gnu:
-    if : ${{ github.event.label.name == 'my-tests' || github.event.label.name == 'all-tests' }}
     strategy:
       max-parallel: 4
       fail-fast: false
@@ -26,10 +29,7 @@ jobs:
             pool  : 8
             tpool : 1
             mkdirs : true
-            tests :
-              - gnu
-              - nvhpc-cpu
-              # add new compilation tests here
+            tests : ${{ inputs.tests }}
 
     uses : ./.github/workflows/test_workflow.yml    
     with :
