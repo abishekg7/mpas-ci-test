@@ -40,8 +40,8 @@ jobs:
       # to avoid 'all-tests' to be used in this workflow
       label    : my-tests
       tests    :
-        - gnu
-        - nvhpc-cpu
+        gnu
+        nvhpc-cpu
         # add new compilation tests here
 
     permissions:
