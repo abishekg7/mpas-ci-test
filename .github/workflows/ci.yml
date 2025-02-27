@@ -39,6 +39,7 @@ jobs:
       # This should be the only hard-coded value, we don't use ${{ github.event.label.name }}
       # to avoid 'all-tests' to be used in this workflow
       label    : my-tests
+      config : .ci/mpas_tests.jsonc
       tests    :
         gnu
         nvhpc-cpu

@@ -5,6 +5,9 @@ on:
       label : 
         required : true
         type     : string
+      config :
+        required : true
+        type     : string
       tests    :
           required : true
           type     : string
@@ -24,7 +27,8 @@ jobs:
             account : NMMM0013
             name : "GNU Tests"
             id   : make-tests
-            config : .ci/mpas_tests.jsonc
+            #config : .ci/mpas_tests.jsonc
+            config : ${{ inputs.config }}
             args : -j='{"node_select":{"-l ":{"select":1}}}'
             pool  : 8
             tpool : 1
